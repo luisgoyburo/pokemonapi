@@ -31,11 +31,17 @@ Generate the database, having as input the csv file pokemon.csv. Run the script:
  - sails run csvtojson
 
 This script will change this column headers:
+
     "Sp. Atk" to  "SpecialAtk"
+
     "Sp. Def" to "SpecialDef"
+
     "#" to "Number"
+
     "Type 1" to "Type_1"
+
     "Type 2" to "Type_2"
+
 And add createdAt, updatedAt and id filds.
 
 Run the app:
@@ -44,40 +50,59 @@ Run the app:
 
 
 The API could be reach at:
+
 http://localhost:1337/pokemons/
 
 It will list the first 30 pokemons
 To list all 800 pokemons:
+
 http://localhost:1337/pokemons?limit=800
 
 To get a pokemon by his id (the new generated):
+
 http://localhost:1337/pokemons/50
 (To get the pokemon wich id is 50)
 
 To paginate the second page, for 10 items x page:
+
 http://localhost:1337/pokemons?limit=10&skip=10
 
 To create or update a record in the database, this is the model:
 
 {
+
     Number: { type: "string", required: true },
+
     Name: { type: "string", required: true },
+
     Type_1: { type: "string", required: true },
+
     Type_2: { type: "string", required: false },
+
     Total: { type: "string", required: true },
+
     HP: { type: "string", required: true },
+
     Attack: { type: "string", required: true },
+
     Defense: { type: "string", required: true },
+
     SpecialAtk: { type: "string", required: true },
+
     SpecialDef: { type: "string", required: true },
+
     Speed: { type: "string", required: true },
+
     Generation: { type: "string", required: true },
+
     Legendary: { type: "string", required: true },
+
 }
 
 To access the live demo API, this is the link:
 
 http://sailsback.apercloud.com
+
 http://sailsback.apercloud.com/pokemons/
 
 
