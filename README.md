@@ -3,24 +3,82 @@
 a [Sails v1](https://sailsjs.com) application
 
 
-### Links
-
-+ [Sails framework documentation](https://sailsjs.com/get-started)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
-
-
 ### Version info
 
 This app was originally generated on Fri Oct 08 2021 18:32:55 GMT-0500 (GMT-05:00) using Sails v1.5.0.
 
-<!-- Internally, Sails used [`sails-generate@2.0.3`](https://github.com/balderdashy/sails-generate/tree/v2.0.3/lib/core-generators/new). -->
+This API expose a Pokemon file as a database.
+
+Originaly the file is in csv format, but it is curated with a script to convert it to json format.
 
 
+To install the application:
 
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
+Install the Sails Framework. Sails is the most popular MVC framework for Node.js, designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails, but with support for the requirements of modern apps: data-driven APIs with a scalable, service-oriented architecture:
+
+ - npm install -g sails
+
+Then clone the repository:
+
+ - git clone https://github.com/luisgoyburo/pokemonapi.git
+
+Go to the directory:
+
+ - cd pokemonapi
+
+Generate the database, having as input the csv file pokemon.csv. Run the script:
+
+ - sails run csvtojson
+
+This script will change this column headers:
+    "Sp. Atk" to  "SpecialAtk"
+    "Sp. Def" to "SpecialDef"
+    "#" to "Number"
+    "Type 1" to "Type_1"
+    "Type 2" to "Type_2"
+And add createdAt, updatedAt and id filds.
+
+Run the app:
+
+ - sails lift (choose option number 3, otherwise it will delete the previously generated json database)
+
+
+The API could be reach at:
+http://localhost:1337/pokemons/
+
+It will list the first 30 pokemons
+To list all 800 pokemons:
+http://localhost:1337/pokemons?limit=800
+
+To get a pokemon by his id (the new generated):
+http://localhost:1337/pokemons/50
+(To get the pokemon wich id is 50)
+
+To paginate the second page, for 10 items x page:
+http://localhost:1337/pokemons?limit=10&skip=10
+
+To create or update a record in the database, this is the model:
+
+{
+    Number: { type: "string", required: true },
+    Name: { type: "string", required: true },
+    Type_1: { type: "string", required: true },
+    Type_2: { type: "string", required: false },
+    Total: { type: "string", required: true },
+    HP: { type: "string", required: true },
+    Attack: { type: "string", required: true },
+    Defense: { type: "string", required: true },
+    SpecialAtk: { type: "string", required: true },
+    SpecialDef: { type: "string", required: true },
+    Speed: { type: "string", required: true },
+    Generation: { type: "string", required: true },
+    Legendary: { type: "string", required: true },
+}
+
+To access the live demo API, this is the link:
+
+http://sailsback.apercloud.com
+http://sailsback.apercloud.com/pokemons/
+
+
 
