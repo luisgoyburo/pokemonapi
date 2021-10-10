@@ -50,7 +50,7 @@ And add createdAt, updatedAt and id filds.
 
 Run the app:
 
- - sails lift (choose option number 3, otherwise it will delete the previously generated json database)
+ - sails lift 
 
 
 The API could be reach at:
