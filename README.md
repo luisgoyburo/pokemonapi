@@ -26,6 +26,10 @@ Go to the directory:
 
  - cd pokemonapi
 
+Install the packages:
+
+ - npm install
+
 Generate the database, having as input the csv file pokemon.csv. Run the script:
 
  - sails run csvtojson
