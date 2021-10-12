@@ -110,4 +110,5 @@ http://sailsback.apercloud.com
 http://sailsback.apercloud.com/pokemons/
 
 
-
+The live demo is located in a vultr server.
+A subdomain "sailsback" has been created within the apercloud.com domain. A site has been enabled on the nginx proxy server that routes the requests to the sails-nodejs server. The nodejs server is managed through the PM2 tool.
